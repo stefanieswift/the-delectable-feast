@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from thedelectablefeast.views import about,about_author
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^about/$', about),
+    url(r'^about/author/(.*)/$', about_author),
 ]
