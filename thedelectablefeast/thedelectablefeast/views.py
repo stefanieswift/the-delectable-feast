@@ -1,15 +1,15 @@
 from django.http import HttpResponse
+from django.template.loader import get_template
+from django.template import Template, Context
+from django.shortcuts import render_to_response
 
 
 def about(request):
-	pamela = "Pamela is a great chef. "
-	stefanie = " Stefanie is learning"
-	html = pamela + stefanie
-	return HttpResponse(html)
+	return render_to_response('about/about.html', {})
 
 
 def about_author(request, offset):
-	author = str(offset)
-	author_bio = author + " is fantastically epic."
-	html = author_bio
-	return HttpResponse(html)
+	return render_to_response('about/aboutTheAuthor.html',
+	{
+		'author': str(offset)
+	})

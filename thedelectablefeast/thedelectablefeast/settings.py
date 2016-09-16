@@ -55,7 +55,9 @@ ROOT_URLCONF = 'thedelectablefeast.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'thedelectablefeast/views'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
