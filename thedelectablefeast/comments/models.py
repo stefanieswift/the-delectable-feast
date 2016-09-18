@@ -12,6 +12,7 @@ class Comment(models.Model):
 	foodBlogAdvice = models.PositiveSmallIntegerField()
 	rating = models.PositiveSmallIntegerField()
 	comment = models.TextField()
+	userWebsite = models.CharField(max_length=255)
 
 	class Admin:
 		pass
