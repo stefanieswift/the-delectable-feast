@@ -8,6 +8,7 @@ class Recipes(models.Model):
 	title = models.CharField(max_length=60)
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now_add=True)
+	thumbnail = models.CharField(max_length=60)
 
 
 class Post(models.Model):
