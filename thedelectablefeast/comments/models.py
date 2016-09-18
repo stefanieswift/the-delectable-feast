@@ -13,8 +13,15 @@ class Comment(models.Model):
 	rating = models.PositiveSmallIntegerField()
 	comment = models.TextField()
 
+	class Admin:
+		pass
+
 
 class Response(models.Model):
 	comment = models.ForeignKey(Comment)
 	response = models.TextField()
 	user = models.ForeignKey(Users)
+
+	class Admin:
+		pass
+

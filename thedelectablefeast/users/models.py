@@ -8,3 +8,6 @@ class Users(models.Model):
 	name = models.CharField(max_length=255)
 	joined = models.DateTimeField(auto_now_add=True)
 	subscriber = models.PositiveSmallIntegerField()
+
+	class Admin:
+		pass
