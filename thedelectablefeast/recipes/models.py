@@ -10,11 +10,17 @@ class Recipes(models.Model):
 	modified = models.DateTimeField(auto_now_add=True)
 	thumbnail = models.CharField(max_length=60)
 
+	class Admin:
+		pass
+
 
 class Post(models.Model):
 	recipe = models.ForeignKey(Recipes)
 	body = models.TextField()
 	metaDescription = models.CharField(max_length=160)
+
+	class Admin:
+		pass
 
 
 class Author(models.Model):
