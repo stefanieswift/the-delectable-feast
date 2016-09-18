@@ -39,4 +39,16 @@ class Rating(models.Model):
 	user = models.ForeignKey(Users)
 
 
+class Tags(models.Model):
+	tag = models.CharField(max_length=155)
+	masterTag = models.PositiveSmallIntegerField(default=0)
+
+
+class TagAssociations(models.Model):
+	recipe = models.ForeignKey(Recipes)
+	tag = models.ForeignKey(Tags)
+
+
+
+
 
