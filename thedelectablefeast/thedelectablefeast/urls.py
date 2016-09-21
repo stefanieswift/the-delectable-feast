@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^about/$', about),
     url(r'^about/author/(.*)/$', about_author),
-    url(r'^search/$', 'recipes.views.search')
+    url(r'^search/$', 'recipes.views.search'),
+    url(r'^recipes/submit/$', 'recipes.views.submit')
 ]

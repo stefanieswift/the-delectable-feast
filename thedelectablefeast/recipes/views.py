@@ -1,5 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import render_to_response
+from forms import ContactForm
 from models import Recipes
 
 
@@ -17,3 +18,8 @@ def search(request):
 		"results": results,
 		"query": query
 	})
+
+
+def submit(request):
+	form = ContactForm()
+	return render_to_response('submit_recipe.html', {'form': form})
