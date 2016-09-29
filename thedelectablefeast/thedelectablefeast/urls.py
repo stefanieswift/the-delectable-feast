@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from thedelectablefeast.views import about,about_author
+from thedelectablefeast.views import about, about_author
+from recipes import views as recipe_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^about/$', about),
     url(r'^about/author/(.*)/$', about_author),
-    url(r'^search/$', 'recipes.views.search'),
-    url(r'^recipes/submit/$', 'recipes.views.submit')
+    url(r'^search/$', recipe_views.search),
+    url(r'^recipes/submit/$', recipe_views.submit),
+    url(r'^', recipe_views.feed)
 ]
