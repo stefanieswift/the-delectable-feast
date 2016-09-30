@@ -1,8 +1,9 @@
 from django.db.models import Q
+from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from forms import ContactForm
 from models import Recipes
-
 
 def search(request):
 	query = request.GET.get('recipes', '')
@@ -30,3 +31,19 @@ def feed(request):
 	return render_to_response('recipeFeed.html', {'recipes' : recipes})
 
 
+def view_recipes(request, recipe_info):
+	recipe_info = recipe_info.split("/")
+	recipe_id = recipe_info[0]
+	recipe = Recipes.objects.filter(id=recipe_id).distinct()[0]
+
+	if not recipe:
+		if len(recipe_info) > 1:
+			recipe = Recipes.object.filter(title=recipe_info[1])
+			if not recipe:
+				return Http404
+	if len(recipe_info) < 2 or recipe_info[1] != recipe.title:
+		recipe_url = Recipes.SITE_URL + recipe_id + "/" + recipe.title + "/"
+		return HttpResponseRedirect(recipe_url)
+	return render_to_response('view_recipe.html', {
+		'recipe' : recipe
+	})

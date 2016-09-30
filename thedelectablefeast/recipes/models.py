@@ -5,6 +5,7 @@ from users.models import Users
 
 
 class Recipes(models.Model):
+	SITE_URL = "https://thedelectablefeast.com/"
 	title = models.CharField(max_length=60)
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now_add=True)

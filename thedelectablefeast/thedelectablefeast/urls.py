@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^about/$', about),
     url(r'^about/author/(.*)/$', about_author),
     url(r'^search/$', recipe_views.search),
-    url(r'^recipes/submit/$', recipe_views.submit),
-    url(r'^', recipe_views.feed)
+    url(r'^recipe/submit/$', recipe_views.submit),
+    url(r'^/', recipe_views.feed),
+    url(r'^recipe/(.*)/$', recipe_views.view_recipes),
 ]
