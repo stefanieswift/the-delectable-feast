@@ -23,12 +23,12 @@ def search(request):
 
 def submit(request):
 	form = ContactForm()
-	return render_to_response('submitRecipe.html', {'form': form})
+	return render_to_response('submit_recipe.html', {'form': form})
 
 
 def feed(request):
 	recipes = Recipes.objects.all()[:15]
-	return render_to_response('recipeFeed.html', {'recipes' : recipes})
+	return render_to_response('recipe_feed.html', {'recipes' : recipes})
 
 
 def view_recipes(request, recipe_info):
