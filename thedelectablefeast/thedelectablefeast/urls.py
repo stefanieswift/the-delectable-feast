@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from thedelectablefeast.views import about, about_author
 from recipes import views as recipe_views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,3 +29,5 @@ urlpatterns = [
     url(r'^/', recipe_views.feed),
     url(r'^recipe/(.*)/$', recipe_views.view_recipes),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
